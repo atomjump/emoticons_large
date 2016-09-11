@@ -38,7 +38,7 @@
 
 	$api->new_message($_COOKIE['your_name'], $message, $_REQUEST['whisper_to'], $_REQUEST['email'], $sender_ip, $forum_id, $options);
 	
-
+	error_log("Finished sending!");
 
 
 ?>
