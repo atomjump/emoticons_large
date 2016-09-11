@@ -1,3 +1,4 @@
 {
-	"serverPath": "/your/server/path/here/"
+	"serverPath": "/your/server/path/here/",
+	"staging" : true
 }
