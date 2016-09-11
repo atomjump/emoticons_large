@@ -27,8 +27,7 @@
 
 	global $root_server_url;
 	$message = "Test"; //$_REQUEST['icon'];  //icon is e.g. http://yoururl.com/api/plugins/emoticons_large/icons/sample-set/pirate.jpg
-	$sender_ip = "192.168.1.1";		//Can be anything, but must be something
-	$options = array();
+	$sender_ip = "92.27.10.17";		//Can be anything, but must be something
 	
 	
 	
@@ -36,7 +35,7 @@
 	
 	error_log("About to try sending: " . $_COOKIE['your_name'] . "  Message:" . $message . "  Whisper to:" . $_REQUEST['whisper_to'] . "  Send email:" . $_REQUEST['email'] . "  Sender ip:" . $sender_ip . "  Forum id:" . $forum['forum_id']);
 
-	$api->new_message($_COOKIE['your_name'], $message, $_REQUEST['whisper_to'], $_REQUEST['email'], $sender_ip, $forum_id, $options);
+	$api->new_message($_COOKIE['your_name'], $message, $_REQUEST['whisper_to'], $_REQUEST['email'], $sender_ip, $forum_id, false);
 	
 	error_log("Finished sending!");
 
