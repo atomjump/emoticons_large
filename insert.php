@@ -26,7 +26,7 @@
     $api = new cls_plugin_api();
 
 	global $root_server_url;
-	$message = $root_server_url . "/plugins/emoticons_large/icons/" . $_REQUEST['icon'];  //icon is e.g. sample-set/pirate.jpg
+	$message = $_REQUEST['icon'];  //icon is e.g. http://yoururl.com/api/plugins/emoticons_large/icons/sample-set/pirate.jpg
 	$sender_ip = "192.168.1.1";		//Can be anything, but must be something
 	$options = array();
 	
