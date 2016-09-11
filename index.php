@@ -70,7 +70,7 @@
         	
         	<h4>Emoticons</h4>
         	
-        	<a href="return insertEmoticons('sample-set/demo.jpg');">Insert Demo</a>	
+        	<a href="javascript:" onclick="return insertEmoticons('sample-set/demo.jpg');">Insert Demo</a>	
         	
         	<?php
         
