@@ -30,7 +30,7 @@
 	$sender_ip = "192.168.1.1";		//Can be anything, but must be something
 	$options = null;
 
-	$api->send_message($_COOKIE['your_name'], $message, $_REQUEST['whisper_to'], $_REQUEST['email'], $sender_ip, $_REQUEST['passcode'], $options);
+	$api->new_message($_COOKIE['your_name'], $message, $_REQUEST['whisper_to'], $_REQUEST['email'], $sender_ip, $_REQUEST['passcode'], $options);
 	
 
 
