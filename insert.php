@@ -32,9 +32,9 @@
 	
 	
 	
-	list($forum_id, $access_type, $forum_group_user_id) = $api->get_forum_id($_REQUEST['passcode']);
+	$forum = $api->get_forum_id($_REQUEST['passcode']);
 	
-	error_log("About to try sending: " . $_COOKIE['your_name'] . "  Message:" . $message . "  Whisper to:" . $_REQUEST['whisper_to'] . "  Send email:" . $_REQUEST['email'] . "  Sender ip:" . $sender_ip . "  Forum id:" . $forum_id);
+	error_log("About to try sending: " . $_COOKIE['your_name'] . "  Message:" . $message . "  Whisper to:" . $_REQUEST['whisper_to'] . "  Send email:" . $_REQUEST['email'] . "  Sender ip:" . $sender_ip . "  Forum id:" . $forum['forum_id']);
 
 	$api->new_message($_COOKIE['your_name'], $message, $_REQUEST['whisper_to'], $_REQUEST['email'], $sender_ip, $forum_id, $options);
 	

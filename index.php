@@ -52,6 +52,8 @@
 					var data = $('comment-input-frm').serialize();
 					data.icon = "<?php echo $root_server_url ?>/plugins/emoticons_large/icons/" + url;
 	
+	
+					alert(JSON.stringify(data));		//TEMPORARY TESTING
 					$.ajax({
 							url: "<?php echo $root_server_url ?>/plugins/emoticons_large/insert.php", 
 							data: data,
