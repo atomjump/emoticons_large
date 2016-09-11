@@ -28,9 +28,15 @@
 	global $root_server_url;
 	$message = $root_server_url . "/plugins/emoticons_large/icons/" . $_REQUEST['icon'];  //icon is e.g. sample-set/pirate.jpg
 	$sender_ip = "192.168.1.1";		//Can be anything, but must be something
-	$options = null;
+	$options = array();
+	
+	
+	
+	list($forum_id, $access_type, $forum_group_user_id) = $api->get_forum_id($_REQUEST['passcode']);
+	
+	error_log("About to try sending: " . $_COOKIE['your_name'] . "  Message:" . $message . "  Whisper to:" . $_REQUEST['whisper_to'] . "  Send email:" . $_REQUEST['email'] . "  Sender ip:" . $sender_ip . "  Forum id:" . $forum_id;
 
-	$api->new_message($_COOKIE['your_name'], $message, $_REQUEST['whisper_to'], $_REQUEST['email'], $sender_ip, $_REQUEST['passcode'], $options);
+	$api->new_message($_COOKIE['your_name'], $message, $_REQUEST['whisper_to'], $_REQUEST['email'], $sender_ip, $forum_id, $options);
 	
 
 
