@@ -50,7 +50,7 @@
         		{
         			
 					var data = $('#comment-input-frm').serialize();
-					data.icon = "<?php echo $root_server_url ?>/plugins/emoticons_large/icons/" + url;
+					data = data + "&icon=<?php echo $root_server_url ?>/plugins/emoticons_large/icons/" + url;
 	
 	
 					alert(JSON.stringify(data));		//TEMPORARY TESTING
