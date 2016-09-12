@@ -27,7 +27,7 @@
 						$filename = $root_server_url . "/" . $newPath;
 						//It's a jpg or png image file
 						?><?php echo $root_server_url . "/" . $newPath; ?>
-						<a href="javascript:" onclick="return insertEmoticon(<?php echo $filename ?>);"><img width="300" src="<?php echo $filename ?>"></a>	
+						<a href="javascript:" onclick="return insertEmoticon('<?php echo $filename ?>');"><img width="300" src="<?php echo $filename ?>"></a>	
 						<?php
 					}
 						 
