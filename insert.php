@@ -42,9 +42,9 @@
 	$forum = $api->get_forum_id($_REQUEST['passcode']);
 	
 	$username = $_REQUEST['sender_name'];
-	if(!$username) {
+	if((!$username)||($username == "")) {
 		$username = $_SESSION['temp-user-name'];
-		if($username) {
+		if((!$username)||($username == "")) {
 			global $msg;
 			global $lang;
 			$username = $msg['msgs'][$lang]['anon'] . " " . substr($sender_ip, -2);
