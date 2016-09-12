@@ -50,8 +50,8 @@
         	$di = new RecursiveDirectoryIterator($root_server_url . '/plugins/emoticons_large/icons/');
 			foreach (new RecursiveIteratorIterator($di) as $filename => $file) {
 				$path_info = pathinfo($filename);
-				if(($path_info['extension'] == '.jpg')||
-					($path_info['extension'] == '.png')) {
+				if(($path_info['extension'] == 'jpg')||
+					($path_info['extension'] == 'png')) {
 					//It's a jpg or png image file
 					?>
 					<a href="javascript:" onclick="return insertEmoticon(<?php echo $filename ?>);"><img width="300" src="<?php echo $filename ?>"></a>	
