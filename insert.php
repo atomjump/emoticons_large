@@ -33,15 +33,22 @@
 
 	global $root_server_url;
 	$message = $_REQUEST['icon'];  //icon is e.g. http://yoururl.com/api/plugins/emoticons_large/icons/sample-set/pirate.jpg
-	$sender_ip = "92.27.10.17";		//Can be anything, but must be something
+	$sender_ip = $api->get_current_user_ip();	
+	
+	
 	
 	
 	
 	$forum = $api->get_forum_id($_REQUEST['passcode']);
 	
-	$username = $_COOKIE['your_name'];
+	$username = $_REQUEST['sender_name'];
 	if(!$username) {
 		$username = $_SESSION['temp-user-name'];
+		if($username) {
+			global $msg;
+			global $lang;
+			$username = $msg['msgs'][$lang]['anon'] . " " . substr($sender_ip, -2);
+		}
 	}
 	
 	error_log("About to try sending: " . $_COOKIE['your_name'] . "  Message:" . $message . "  Whisper to:" . $_REQUEST['whisper_to'] . "  Send email:" . $_REQUEST['email'] . "  Sender ip:" . $sender_ip . "  Forum id:" . $forum['forum_id']);

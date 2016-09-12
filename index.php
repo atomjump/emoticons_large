@@ -51,6 +51,7 @@
         			
 					var data = $('#comment-input-frm').serialize();
 					data = data + "&icon=<?php echo $root_server_url ?>/plugins/emoticons_large/icons/" + url;
+					data = data + "&sender_name=" . $('#your-name-opt').val();
 	
 	
 					$.ajax({
