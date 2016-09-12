@@ -53,9 +53,10 @@
 				if(($path_info['extension'] == '.jpg')||
 					($path_info['extension'] == '.png')) {
 					//It's a jpg or png image file
-				?>
-				<a href="javascript:" onclick="return insertEmoticon(<?php echo $filename ?>);"><img width="300" src="<?php echo $filename ?>"></a>	
- 				<?php
+					?>
+					<a href="javascript:" onclick="return insertEmoticon(<?php echo $filename ?>);"><img width="300" src="<?php echo $filename ?>"></a>	
+ 					<?php
+				}
 			} ?>
 				
         	
