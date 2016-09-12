@@ -30,7 +30,7 @@
     $api = new cls_plugin_api();
 
 	global $root_server_url;
-	$message = $_REQUEST['icon'];  //icon is e.g. http://yoururl.com/api/plugins/emoticons_large/icons/sample-set/pirate.jpg
+	$message = "<a href=''><img src='" . $_REQUEST['icon'] . "'></a>";  //icon is e.g. http://yoururl.com/api/plugins/emoticons_large/icons/sample-set/pirate.jpg
 	$sender_ip = $api->get_current_user_ip();	
 	
 	
