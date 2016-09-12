@@ -32,7 +32,7 @@
 	global $root_server_url;
 	
 	//Get the image size so that we can calculate exactly how big to make this image
-	$size_array = getimagesize($_REQUEST['filename']);
+	$size_array = getimagesize("./" . $_REQUEST['filename']);
 	if($size_array) {
 		$cur_width = $size_array[0];
 		$target_width = 200;
