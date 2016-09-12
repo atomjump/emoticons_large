@@ -75,7 +75,7 @@
         	
         	<h4>Emoticons</h4>
         	
-        	<a href="javascript:" onclick="return insertEmoticon('sample-set/pirate.jpg');">Insert Demo</a>	
+        	<a href="javascript:" onclick="return insertEmoticon('sample-set/pirate.jpg');"><img src="<?php echo $root_server_url ?>/plugins/emoticons_large/icons/sample_set/pirate.jpg"></a>	
         	
         	<?php
         
