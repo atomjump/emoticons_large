@@ -17,8 +17,10 @@
     }
 
 	$start_path = $emoticons_large_config['serverPath'];
-	$notify = false;
+	error_log("Server path:" . $start_path);
+	$notify = true;		//this switches on notifications from this message
 	$staging = $emoticons_large_config['staging'];
+	error_log("Staging: " . $staging);
 	include_once($start_path . 'config/db_connect.php');	
 	
     $define_classes_path = $start_path;     //This flag ensures we have access to the typical classes, before the cls.pluginapi.php is included
