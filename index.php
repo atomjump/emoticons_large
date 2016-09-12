@@ -60,7 +60,10 @@
 							type: 'POST',
 							cache: false
 							}).done(function(response) {
-        						//TODO: Now switch back to the main screen
+        						//Now switch back to the main screen
+        						doSearch();
+        						$("#comment-popup-content").show(); 
+								$("#comment-upload").hide(); 
         					}
         			);
         			
