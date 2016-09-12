@@ -24,10 +24,11 @@
 						
 						global $root_server_url;						
 						
-						$filename = $root_server_url . "/" . $newPath;
+						$filename = $newPath;
+						$url = $root_server_url . "/" . $newPath;
 						//It's a jpg or png image file
 						?>
-						<a href="javascript:" onclick="return insertEmoticon('<?php echo $filename ?>');"><img width="200" src="<?php echo $filename ?>"></a>	
+						<a href="javascript:" onclick="return insertEmoticon('<?php echo $filename ?>', '<?php echo $url ?>');"><img width="200" src="<?php echo $url ?>"></a>	
 						<?php
 					}
 						 
@@ -48,11 +49,11 @@
         	
         	?>
         	<script>
-        		function insertEmoticon(url)
+        		function insertEmoticon(filename, url)
         		{
         			
 					var data = $('#comment-input-frm').serialize();
-					data = data + "&icon=" + url;
+					data = data + "&icon=" + url + "&filename=" + filename;
 					data = data + "&sender_name=" + encodeURIComponent($('#your-name-opt').val());
 	
 	
