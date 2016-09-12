@@ -40,9 +40,13 @@ Tap on the 'Upload Icon' at the bottom of any Atomjump popup. Scroll down the pa
 Tap on an emoticon for a new message with that emoticon.
 
 You are free to add further emoticon sets into the 'icons' folder. They should be put into a named subdirectory, which
-will automatically be read.
+will automatically be read. Images can be either .jpg or .png.
 
 
 ## Credits
 These icons are from Pixabay.
 
+
+#Future
+
+We may want some form of limit on the number of visible icons here, perhaps expanding by subdirectory name.
