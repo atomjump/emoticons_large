@@ -17,13 +17,11 @@
     }
 
 	$start_path = $emoticons_large_config['serverPath'];
-	error_log("Server path:" . $start_path);
 	$notify = true;		//this switches on notifications from this message
 	$staging = $emoticons_large_config['staging'];
 	if($staging == 1) {
 		$staging = true;
 	}
-	error_log("Staging: " . $staging);
 	include_once($start_path . 'config/db_connect.php');	
 	
     $define_classes_path = $start_path;     //This flag ensures we have access to the typical classes, before the cls.pluginapi.php is included
@@ -51,11 +49,11 @@
 		}
 	}
 	
-	error_log("About to try sending: " . $_COOKIE['your_name'] . "  Message:" . $message . "  Whisper to:" . $_REQUEST['whisper_to'] . "  Send email:" . $_REQUEST['email'] . "  Sender ip:" . $sender_ip . "  Forum id:" . $forum['forum_id']);
+	//error_log("About to try sending: " . $_COOKIE['your_name'] . "  Message:" . $message . "  Whisper to:" . $_REQUEST['whisper_to'] . "  Send email:" . $_REQUEST['email'] . "  Sender ip:" . $sender_ip . "  Forum id:" . $forum['forum_id']);
 
 	$api->new_message($_COOKIE['your_name'], $message, $_REQUEST['whisper_to'], $_REQUEST['email'], $sender_ip, $forum['forum_id'], false);
 	
-	error_log("Finished sending!");
+	//error_log("Finished sending!");
 
 
 ?>
