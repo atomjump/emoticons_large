@@ -39,14 +39,17 @@
 	
 	$forum = $api->get_forum_id($_REQUEST['passcode']);
 	
-	$username = $_REQUEST['sender_name'];
-	if((!$username)||($username == "")) {
-		$username = $_SESSION['temp-user-name'];
-		if((!$username)||($username == "")) {
-			global $msg;
-			global $lang;
-			$username = $msg['msgs'][$lang]['anon'] . " " . substr($sender_ip, -2);
+	if(isset($_REQUEST['sender_name']) ) {
+		$username = $_REQUEST['sender_name'];
+	} else {
+		if(isset($_SESSION['temp-user-name']) ) {		
+			$username = $_SESSION['temp-user-name'];
 		}
+	}
+	if($username == "") {
+		global $msg;
+		global $lang;
+		$username = $msg['msgs'][$lang]['anon'] . " " . substr($sender_ip, -2);
 	}
 	
 	//error_log("About to try sending: " . $_COOKIE['your_name'] . "  Message:" . $message . "  Whisper to:" . $_REQUEST['whisper_to'] . "  Send email:" . $_REQUEST['email'] . "  Sender ip:" . $sender_ip . "  Forum id:" . $forum['forum_id']);
