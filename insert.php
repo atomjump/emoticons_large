@@ -20,6 +20,9 @@
 	error_log("Server path:" . $start_path);
 	$notify = true;		//this switches on notifications from this message
 	$staging = $emoticons_large_config['staging'];
+	if($staging == 1) {
+		$staging = true;
+	}
 	error_log("Staging: " . $staging);
 	include_once($start_path . 'config/db_connect.php');	
 	
