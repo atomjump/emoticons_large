@@ -30,9 +30,11 @@
     $api = new cls_plugin_api();
 
 	global $root_server_url;
+	global $local_server_path;
 	
 	//Get the image size so that we can calculate exactly how big to make this image
-	$size_array = getimagesize("./" . $_REQUEST['filename']);
+	$fullfile = $start_path . "./" . $_REQUEST['filename'];
+	$size_array = getimagesize($fullfile);
 	if($size_array) {
 		$cur_width = $size_array[0];
 		$target_width = 200;
@@ -65,6 +67,6 @@
 		$api->new_message($username, $message, $_REQUEST['whisper_to'], $_REQUEST['email'], $sender_ip, $forum['forum_id'], false);
 	
 	} else {
-		error_log("No image at " . $_REQUEST['filename']);
+		error_log("No image at " . $fullfile);
 	}
 ?>
