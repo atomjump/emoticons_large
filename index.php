@@ -82,7 +82,7 @@
 			
 				
 			
-				$path = './plugins/emoticons_large/icons/';
+				$path = 'plugins/emoticons_large/icons';
 				$this->readDirs($path);
 			?>
 				
