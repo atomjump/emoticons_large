@@ -39,6 +39,11 @@
 	
 	$forum = $api->get_forum_id($_REQUEST['passcode']);
 	
+	$username = $_COOKIE['your_name'];
+	if(!$username) {
+		$username = $_SESSION['temp-user-name'];
+	}
+	
 	error_log("About to try sending: " . $_COOKIE['your_name'] . "  Message:" . $message . "  Whisper to:" . $_REQUEST['whisper_to'] . "  Send email:" . $_REQUEST['email'] . "  Sender ip:" . $sender_ip . "  Forum id:" . $forum['forum_id']);
 
 	$api->new_message($_COOKIE['your_name'], $message, $_REQUEST['whisper_to'], $_REQUEST['email'], $sender_ip, $forum['forum_id'], false);
