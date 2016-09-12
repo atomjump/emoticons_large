@@ -21,8 +21,10 @@
 					$path_info = pathinfo($item);
 					if(($path_info['extension'] == 'jpg')||
 						($path_info['extension'] == 'png')) {
+						
+							$filename = $root_server_url . $item;
 						//It's a jpg or png image file
-						?>
+						?><?php echo $item; ?>
 						<a href="javascript:" onclick="return insertEmoticon(<?php echo $filename ?>);"><img width="300" src="<?php echo $filename ?>"></a>	
 						<?php
 					}
@@ -78,7 +80,7 @@
 			
 				
 			
-				$path = $root_server_url . '/plugins/emoticons_large/icons/';
+				$path = './plugins/emoticons_large/icons/';
 				$this->readDirs($path);
 			?>
 				
