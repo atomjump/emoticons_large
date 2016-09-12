@@ -22,9 +22,9 @@
 					if(($path_info['extension'] == 'jpg')||
 						($path_info['extension'] == 'png')) {
 						
-							$filename = $root_server_url . $item;
+							$filename = $root_server_url . $new_path . $item;
 						//It's a jpg or png image file
-						?><?php echo $item; ?>
+						?><?php echo $root_server_url . $new_path . $item; ?>
 						<a href="javascript:" onclick="return insertEmoticon(<?php echo $filename ?>);"><img width="300" src="<?php echo $filename ?>"></a>	
 						<?php
 					}
