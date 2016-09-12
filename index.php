@@ -4,6 +4,34 @@
     class plugin_emoticons_large
     {
         
+        
+        
+        public function readDirs($path){
+        	//Reads dirctories
+			  $dirHandle = opendir($path);
+			  while($item = readdir($dirHandle)) {
+				$newPath = $path."/".$item;
+				if(is_dir($newPath) && $item != '.' && $item != '..') {
+				   //New Folder
+				   //echo "Found Folder $newPath<br>";
+				   $this->readDirs($newPath);
+		   
+				} else {
+					//A new file
+					$path_info = pathinfo($item);
+					if(($path_info['extension'] == 'jpg')||
+						($path_info['extension'] == 'png')) {
+						//It's a jpg or png image file
+						?>
+						<a href="javascript:" onclick="return insertEmoticon(<?php echo $filename ?>);"><img width="300" src="<?php echo $filename ?>"></a>	
+						<?php
+					}
+						 
+				}
+			  }
+		}
+        
+        
         public function on_upload_screen()
         {
         	global $root_server_url;
@@ -46,23 +74,16 @@
         	<h4>Emoticons</h4>
         	
         	<?php 
-        	//Get a list of all the icon sets (i.e. the directories in each set)
-        	$di = new RecursiveDirectoryIterator($root_server_url . '/plugins/emoticons_large/icons/');
-			foreach (new RecursiveIteratorIterator($di) as $filename => $file) {
-				$path_info = pathinfo($filename);
-				if(($path_info['extension'] == 'jpg')||
-					($path_info['extension'] == 'png')) {
-					//It's a jpg or png image file
-					?>
-					<a href="javascript:" onclick="return insertEmoticon(<?php echo $filename ?>);"><img width="300" src="<?php echo $filename ?>"></a>	
- 					<?php
-				}
-			} ?>
+				//Get a list of all the icon sets (i.e. the directories in each set)
+			
+				
+			
+				$path = $root_server_url . '/plugins/emoticons_large/icons/';
+				$this->readDirs($path);
+			?>
 				
         	
         	<?php
-        	
-        
         }
     }
 ?>
