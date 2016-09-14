@@ -39,7 +39,7 @@
 		$cur_width = $size_array[0];
 		$target_width = 200;
 		$cur_height =  $size_array[1];
-		$target_height = ($cur_width / $target_width) * $cur_height;
+		$target_height = intval(($cur_width / $target_width) * $cur_height);
 		$message = "<img class=\"img-responsive\" border=\"0\"  width=\"" . $target_width . "\" height=\"" . $target_height . "\" src=\"" . $_REQUEST['icon'] . "\">";  //icon is e.g. http://yoururl.com/api/plugins/emoticons_large/icons/sample-set/pirate.jpg
 		$sender_ip = $api->get_current_user_ip();	
 	
@@ -61,8 +61,9 @@
 			global $lang;
 			$username = $msg['msgs'][$lang]['anon'] . " " . substr($sender_ip, -2);
 		}
-	
-		//error_log("About to try sending: " . $_COOKIE['your_name'] . "  Message:" . $message . "  Whisper to:" . $_REQUEST['whisper_to'] . "  Send email:" . $_REQUEST['email'] . "  Sender ip:" . $sender_ip . "  Forum id:" . $forum['forum_id']);
+		
+		//get_group_user($forum['forum_id']);
+		
 
 		$api->new_message($username, $message, $_REQUEST['whisper_to'], $_REQUEST['email'], $sender_ip, $forum['forum_id'], false);
 	
