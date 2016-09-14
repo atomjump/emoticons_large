@@ -66,6 +66,7 @@
 		
 
 		$api->new_message($username, $message, $_REQUEST['whisper_to'], $_REQUEST['email'], $sender_ip, $forum['forum_id'], false);
+		$api->complete_parallel_calls();
 	
 	} else {
 		error_log("No image at " . $fullfile);
