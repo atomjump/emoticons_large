@@ -37,7 +37,7 @@
 		}
         
         
-        public function on_upload_screen()
+        public function on_emojis_screen()
         {
         	global $root_server_url;
         	
