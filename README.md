@@ -44,7 +44,7 @@ will automatically be read. Images can be either .jpg or .png.
 
 
 ## Credits
-These icons are from Pixabay.
+These icons are from Pixabay.com.
 
 
 #Future
