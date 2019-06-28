@@ -1,5 +1,13 @@
 <?php
 
+	function trim_trailing_slash_local($str) {
+        return rtrim($str, "/");
+    }
+    
+    function add_trailing_slash_local($str) {
+        //Remove and then add
+        return rtrim($str, "/") . '/';
+    }
 
     if(!isset($emoticons_large_config)) {
         //Get global plugin config - but only once
@@ -16,7 +24,7 @@
         }
     }
 
-	$start_path = $emoticons_large_config['serverPath'];
+	$start_path = add_trailing_slash_local($emoticons_large_config['serverPath']);
 	$notify = true;		//this switches on notifications from this message
 	$staging = $emoticons_large_config['staging'];
 	if($staging == 1) {
@@ -61,9 +69,7 @@
 			global $lang;
 			$username = $msg['msgs'][$lang]['anon'] . " " . substr($sender_ip, -2);
 		}
-		
-		//get_group_user($forum['forum_id']);
-		
+				
 
 		$api->new_message($username, $message, $_REQUEST['whisper_to'], $_REQUEST['email'], $sender_ip, $forum['forum_id'], false);
 		$api->complete_parallel_calls();
