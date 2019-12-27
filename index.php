@@ -67,6 +67,10 @@
         						doSearch();
         						$("#comment-popup-content").show(); 
 								$("#comment-upload").hide(); 
+								
+								//Send message to the parent frame to hide highlight
+								var targetOrigin = getParentUrl();		//This is in search-secure
+								parent.postMessage( {'highlight': "none" }, targetOrigin );
         					}
         			);
         			
