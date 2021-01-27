@@ -14,7 +14,7 @@ Unzip or git clone into the folder: your-loop-server/plugins/emoticons_large
 
 ```
  cd your-loop-server/plugins/
- git clone https://github.com/atomjump/emoticons_large.git
+ git clone https://src.atomjump.com/atomjump/emoticons_large.git
  cd emoticons_large/config
  cp configORIGINAL.json config.json
  nano config.json
