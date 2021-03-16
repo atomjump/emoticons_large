@@ -6,7 +6,7 @@
         
         
         
-        public function readDirs($path){
+        public function read_all_dirs($path){
         	//Reads dirctories
 			  $dirHandle = opendir($path);
 			  while($item = readdir($dirHandle)) {
@@ -121,7 +121,7 @@
 				
 			
 				$path = 'plugins/emoticons_large/icons';
-				$this->readDirs($path, "basic");
+				$this->read_dir($path, "basic");
 			?>
 				
         	
