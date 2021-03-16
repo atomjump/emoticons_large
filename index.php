@@ -39,7 +39,7 @@
 		
 		public function read_dir($path, $folder){
         	//Reads dirctories
-        	  $full_path = trim_trailing_slash($path) . "/" . $folder;
+        	  $full_path = trim_trailing_slash($path) . "/" . $folder . "/";
 			  $dirHandle = opendir($full_path);
 			  while($item = readdir($dirHandle)) {
 				$newPath = $full_path."/".$item;
