@@ -43,7 +43,8 @@
 		echo "Sorry, this cannot be updated on a production AtomJump Messaging server.";
 	} else {
 		chdir(__DIR__);
-		echo shell_exec("git pull");
+		$return = shell_exec("git pull");
+		echo $return;
 	}
 	
 ?>
