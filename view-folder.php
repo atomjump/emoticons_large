@@ -64,8 +64,9 @@
                	//Valid .json data. Get the array of files to use               	
                	for($cnt = 0; $cnt< count($json_include->displayFiles); $cnt++) {
                		
+               		error_log("strpos result" . strpos($json_include->displayFiles[$cnt], "update-emoticons"));
                		if(($staging != true)&&
-						(strpos($json_include->displayFiles[$cnt], "update-emoticons") !== false)) {
+						(strpos($json_include->displayFiles[$cnt], "update-emoticons") != false)) {
 							//For production servers remove any files that include 'update-emoticons', which is a special case on staging servers to update the latest icons on the server.
 							
 					} else {
