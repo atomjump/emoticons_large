@@ -40,32 +40,36 @@
 		public function read_dir($path, $folder){
         	//Reads dirctories
         	  $full_path = trim_trailing_slash($path) . "/" . $folder;
+        	  $dirFiles = array();
+        	  
 			  $dirHandle = opendir($full_path);
 			  while($item = readdir($dirHandle)) {
 				$newPath = $full_path."/".$item;
-				if(is_dir($newPath) && $item != '.' && $item != '..') {
-				   //New Folder
-				   //echo "Found Folder $newPath<br>";
-				   $this->readDirs($newPath);
-		   
-				} else {
-					//A new file
-					$path_info = pathinfo($item);
-					if(($path_info['extension'] == 'jpg')||
-						($path_info['extension'] == 'png')) {
-						
-						global $root_server_url;						
-						
-						$filename = $newPath;
-						$url = $root_server_url . "/" . $newPath;
-						//It's a jpg or png image file
-						?>
-						<a href="javascript:" onclick="return insertEmoticon('<?php echo $filename ?>', '<?php echo $url ?>');"><img width="100" src="<?php echo $url ?>"></a>	
-						<?php
-					}
-						 
+				
+				//A new file
+				$path_info = pathinfo($item);
+				if(($path_info['extension'] == 'jpg')||
+					($path_info['extension'] == 'png')) {
+					 $dirFiles[] = $newPath;
+					
 				}
+					
 			  }
+			  
+			  sort($dirFiles);			//Sort alphabetically
+			  foreach($dirFiles as $newPath)
+			  {
+					global $root_server_url;						
+					
+					$filename = $newPath;
+					$url = $root_server_url . "/" . $newPath;
+					//It's a jpg or png image file
+					?>
+					<a href="javascript:" onclick="return insertEmoticon('<?php echo $filename ?>', '<?php echo $url ?>');"><img width="100" src="<?php echo $url ?>"></a>	
+					<?php
+			  }
+
+			  
 		}
 		
         
