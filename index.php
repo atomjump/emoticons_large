@@ -136,6 +136,26 @@
         	<script>
         		function insertEmoticon(filename, url)
         		{
+        			if(filename.includes("update-emoticons")) {
+        				//Special case - update server action
+        				
+							
+							var data = { "folder": finalFolder };
+						
+							$.ajax({
+									url: "<?php echo $root_server_url ?>/plugins/emoticons_large/update-server.php", 
+									data: data,
+									type: 'POST',
+									cache: false
+									}).done(function(response) {
+										$("#emoticons").html(response);
+									
+									
+									}
+								);
+						return false;		//Exit out of function
+        			}
+        		
         			//Check if filename includes the work 'folder', and refresh with that folder
         			if(filename.includes("folder")) {
         				var split = filename.split("folder");
