@@ -40,6 +40,10 @@
 		public function read_dir($path, $folder){
         	//Reads dirctories
         	  $full_path = trim_trailing_slash($path) . "/" . $folder;
+        	  
+        	  $dir_files = array();
+        	  
+        	  /* OLD:
         	  $dirFiles = array();
         	  
 			  $dirHandle = opendir($full_path);
@@ -56,13 +60,56 @@
 					
 			  }
 			  
-			  sort($dirFiles);			//Sort alphabetically
-			  foreach($dirFiles as $newPath)
+			  sort($dir_files);			//Sort alphabetically
+			  */
+			  
+			  	//Check if an 'include.json' file exists in this folder
+				$include_file = add_trailing_slash_local($full_path) . "include.json";
+				if(file_exists($include_file)) {
+		
+					//Yes, get the file list from the include file
+					$include_data = file_get_contents($include_file);
+					if($include_data) {
+						$json_include = json_decode($include_data);
+						if(!isset($json_include)) {
+							echo "Error: emoticons_large " . $include_file ." is not valid JSON.";
+							exit(0);
+						}
+						//Valid .json data. Get the array of files to use               	
+						for($cnt = 0; $cnt< count($json_include->displayFiles); $cnt++) {
+							$dir_files[] = $full_path . "/" . $json_include->displayFiles[$cnt];
+						}
+				
+					} else {
+						echo "Error: emoticons_large " . $include_file ." could not be read properly.";
+						exit(0);
+					}
+				} else {
+					//Use alphabetical sorting of all the image files in the folder
+					$dir_handle = opendir($full_path);
+					while($item = readdir($dir_handle)) {
+						$new_path = $full_path ."/". $item;
+		
+						//A new file
+						$path_info = pathinfo($item);
+						if(($path_info['extension'] == 'jpg')||
+							($path_info['extension'] == 'png')) {
+							 $dir_files[] = $new_path;
+			
+						}
+			
+					}	  
+					sort($dir_files);			//Sort alphabetically
+				}
+			  
+			  
+			  
+			  foreach($dir_files as $new_path)
 			  {
 					global $root_server_url;						
 					
-					$filename = $newPath;
-					$url = $root_server_url . "/" . $newPath;
+					$filename = $new_path;
+					$url = $root_server_url . "/" . $new_path;
 					//It's a jpg or png image file
 					?>
 					<a href="javascript:" onclick="return insertEmoticon('<?php echo $filename ?>', '<?php echo $url ?>');"><img width="100" src="<?php echo $url ?>"></a>	
