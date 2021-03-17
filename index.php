@@ -42,26 +42,6 @@
         	  $full_path = trim_trailing_slash($path) . "/" . $folder;
         	  
         	  $dir_files = array();
-        	  
-        	  /* OLD:
-        	  $dirFiles = array();
-        	  
-			  $dirHandle = opendir($full_path);
-			  while($item = readdir($dirHandle)) {
-				$newPath = $full_path."/".$item;
-				
-				//A new file
-				$path_info = pathinfo($item);
-				if(($path_info['extension'] == 'jpg')||
-					($path_info['extension'] == 'png')) {
-					 $dirFiles[] = $newPath;
-					
-				}
-					
-			  }
-			  
-			  sort($dir_files);			//Sort alphabetically
-			  */
 			  
 			  	//Check if an 'include.json' file exists in this folder
 				$include_file = add_trailing_slash($full_path) . "include.json";
