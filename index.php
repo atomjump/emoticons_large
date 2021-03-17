@@ -77,7 +77,14 @@
 						}
 						//Valid .json data. Get the array of files to use               	
 						for($cnt = 0; $cnt< count($json_include->displayFiles); $cnt++) {
-							$dir_files[] = $full_path . "/" . $json_include->displayFiles[$cnt];
+							if(($staging != true)&&
+								(strpos($json_include->displayFiles[$cnt], "update-emoticons") !== false)) {
+							//For production servers remove any files that include 'update-emoticons', which is a special case on staging servers to update the latest icons on the server.
+							
+							} else {
+								//A new image file
+								$dir_files[] = $full_path . "/" . $json_include->displayFiles[$cnt];
+							}
 						}
 				
 					} else {
@@ -88,15 +95,24 @@
 					//Use alphabetical sorting of all the image files in the folder
 					$dir_handle = opendir($full_path);
 					while($item = readdir($dir_handle)) {
-						$new_path = $full_path ."/". $item;
+						
+						if(($staging != true)&&
+							(strpos($item, "update-emoticons") !== false)) {
+							//For production servers remove any files that include 'update-emoticons', which is a special case on staging servers to update the latest icons on the server.
+							
+						} else {
+							//A normal image
+							$new_path = $full_path ."/". $item;
 		
-						//A new file
-						$path_info = pathinfo($item);
-						if(($path_info['extension'] == 'jpg')||
-							($path_info['extension'] == 'png')||
-							($path_info['extension'] == 'gif')) {
-							 $dir_files[] = $new_path;
+							//A new file
+							$path_info = pathinfo($item);
+							if(($path_info['extension'] == 'jpg')||
+								($path_info['extension'] == 'png')||
+								($path_info['extension'] == 'gif')) {
+							
+								 $dir_files[] = $new_path;
 			
+							}
 						}
 			
 					}	  
