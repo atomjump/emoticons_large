@@ -44,7 +44,12 @@ will automatically be read. Images can be either .jpg or .png.
 
 
 ## Credits
-These icons are from Pixabay.com.
+Most of these icons are from Pixabay.com.
+
+But here are some others:
+https://www.veryicon.com/icons/business/sunshine/home-191.html
+https://www.veryicon.com/icons/internet--web/iview-3-x-icons/md-folder-open.html
+https://www.veryicon.com/icons/object/material-design-icons-1/folder-download-21.html
 
 
 #Future
