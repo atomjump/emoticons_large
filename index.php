@@ -95,7 +95,7 @@
         				
         					var folder = split[1].split(".");		//folder[0] will be e.g. "-newfolder" at this stage
         					var finalFolder = folder[0];
-        					if(finalFolder[0] == "-") finalFolder = folder[0].substr(1);
+        					if(finalFolder.substr(0,1) == "-") finalFolder = folder[0].substr(1);
 							alert(finalFolder);
 							
 							
