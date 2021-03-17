@@ -92,7 +92,7 @@
         			if(filename.includes("folder")) {
         			
         				alert("Includes a folder");
-        				var data = "folder=basic";
+        				var data = { "folder": "basic" };
         				
         				$.ajax({
 								url: "<?php echo $root_server_url ?>/plugins/emoticons_large/view-folder.php", 
