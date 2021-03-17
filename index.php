@@ -91,20 +91,28 @@
         			//Check if filename includes the work 'folder', and refresh with that folder
         			if(filename.includes("folder")) {
         				var split = filename.split("folder");
-        				alert(split[0] + " " + split[1]);
-        				var data = { "folder": "alien" };
+        				if(split[1]) {
         				
-        				$.ajax({
-								url: "<?php echo $root_server_url ?>/plugins/emoticons_large/view-folder.php", 
-								data: data,
-								type: 'POST',
-								cache: false
-								}).done(function(response) {
-									$("#emoticons").html(response);
+        					var folder = split[1].split(".");		//folder[0] will be e.g. "-newfolder" at this stage
+        					var finalFolder = folder[0];
+        					if(folder[0] == "-") finalFolder = folder[0].substr(1);
+							alert(finalFolder);
+							
+							
+							var data = { "folder": finalFolder };
+						
+							$.ajax({
+									url: "<?php echo $root_server_url ?>/plugins/emoticons_large/view-folder.php", 
+									data: data,
+									type: 'POST',
+									cache: false
+									}).done(function(response) {
+										$("#emoticons").html(response);
 									
 									
-								}
-						);
+									}
+								);
+						}
         				
         			} else {
         				//Assume an image to insert       			
