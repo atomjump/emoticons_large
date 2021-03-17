@@ -90,9 +90,7 @@
         		{
         			//Check if filename includes the work 'folder', and refresh with that folder
         			if(filename.includes("folder")) {
-        			
-        				alert("Includes a folder");
-        				var data = { "folder": "basic" };
+        				var data = { "folder": "alien" };
         				
         				$.ajax({
 								url: "<?php echo $root_server_url ?>/plugins/emoticons_large/view-folder.php", 
@@ -100,7 +98,6 @@
 								type: 'POST',
 								cache: false
 								}).done(function(response) {
-									alert(response);
 									$("#emoticons").html(response);
 									
 									
