@@ -75,6 +75,8 @@
 			  
 	}
 	
+	error_log(json_encode($_REQUEST));
+	error_log($_REQUEST['folder']);
 	$path = 'plugins/emoticons_large/icons';
 	echo read_dir($path, $_REQUEST['folder']);
 	
