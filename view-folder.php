@@ -67,8 +67,6 @@
                		if(($staging != true)&&
 						(strpos($json_include->displayFiles[$cnt], "update-emoticons") !== false)) {
 							//For production servers remove any files that include 'update-emoticons', which is a special case on staging servers to update the latest icons on the server.
-						//TESTING
-						error_log("Staging:" . $staging . " Filename:" . $json_include->displayFiles[$cnt]);
 							
 					} else {
                			//A normal image
