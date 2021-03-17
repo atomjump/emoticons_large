@@ -1,0 +1,11 @@
+{
+	"info": "This optional .json file specifies which files to include visibly in the messaging 'emoticons' window, and in which order. Without this file all .png and .jpg image files are included in alphabetical order.",
+	"infoDetail": "Once you have added a file and taken it live, you need to leave it in the repository (because old messages will still point at the image). However, you can choose to remove the image from the displayFiles array below so that it is not a selectable emoticon in future, or you can change the order it is displayed in by inserting it in a different location on the list below.",
+	"infoBeforeCommitting": "Before committing this file you should confirm it is valid JSON. Recommended tool for 'JSON validation' is available here: https://jsonlint.com/",
+	"displayFiles": [
+		"agood-hungry.png",
+		"agood-laugh.jpg",
+		"agood-laughcry.png",
+		"xtra-folder-alien.png"	
+	]
+}
