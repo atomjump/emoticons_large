@@ -100,7 +100,7 @@
 								type: 'POST',
 								cache: false
 								}).done(function(response) {
-									$("#emoticons").html("Icons in here");
+									$("#emoticons").html(response);
 									
 									
 								}
