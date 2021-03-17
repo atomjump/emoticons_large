@@ -40,6 +40,8 @@
 	global $root_server_url;
 	global $local_server_path;
 	
+	
+	
 	//Get the image size so that we can calculate exactly how big to make this image
 	$fullfile = $start_path . "./" . $_REQUEST['filename'];
 	$size_array = getimagesize($fullfile);

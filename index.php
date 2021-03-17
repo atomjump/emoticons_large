@@ -88,28 +88,48 @@
         	<script>
         		function insertEmoticon(filename, url)
         		{
+        			//Check if filename includes the work 'folder', and refresh with that folder
+        			if(filename.includes("folder")) {
         			
-					var data = $('#comment-input-frm').serialize();
-					data = data + "&icon=" + url + "&filename=" + filename;
-					data = data + "&sender_name=" + encodeURIComponent($('#your-name-opt').val());
+        				alert("Includes a folder");
+        				var data = "?folder=basic";
+        				
+        				$.ajax({
+								url: "<?php echo $root_server_url ?>/plugins/emoticons_large/view-folder.php", 
+								data: data,
+								type: 'POST',
+								cache: false
+								}).done(function(response) {
+									$("#emoticons").html("Icons in here");
+									
+									
+								}
+						);
+        				
+        			} else {
+        				//Assume an image to insert       			
+						var data = $('#comment-input-frm').serialize();
+						data = data + "&icon=" + url + "&filename=" + filename;
+						data = data + "&sender_name=" + encodeURIComponent($('#your-name-opt').val());
 	
 	
-					$.ajax({
-							url: "<?php echo $root_server_url ?>/plugins/emoticons_large/insert.php", 
-							data: data,
-							type: 'POST',
-							cache: false
-							}).done(function(response) {
-        						//Now switch back to the main screen
-        						doSearch();
-        						$("#comment-popup-content").show(); 
-								$("#comment-upload").hide(); 
+						$.ajax({
+								url: "<?php echo $root_server_url ?>/plugins/emoticons_large/insert.php", 
+								data: data,
+								type: 'POST',
+								cache: false
+								}).done(function(response) {
+									//Now switch back to the main screen
+									doSearch();
+									$("#comment-popup-content").show(); 
+									$("#comment-upload").hide(); 
 								
-								//Send message to the parent frame to hide highlight
-								var targetOrigin = getParentUrl();		//This is in search-secure
-								parent.postMessage( {'highlight': "none" }, targetOrigin );
-        					}
-        			);
+									//Send message to the parent frame to hide highlight
+									var targetOrigin = getParentUrl();		//This is in search-secure
+									parent.postMessage( {'highlight': "none" }, targetOrigin );
+								}
+						);
+					}
         			
         			return false;
         		}
@@ -119,6 +139,7 @@
         	
         	<h4>Emoticons</h4>
         	
+        	<div id="emoticons">
         	<?php 
 				//Get a list of all the icon sets (i.e. the directories in each set)
 			
@@ -127,6 +148,7 @@
 				$path = 'plugins/emoticons_large/icons';
 				$this->read_dir($path, "basic");
 			?>
+			</div>
 				
         	
         	<?php
