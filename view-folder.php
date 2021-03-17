@@ -61,7 +61,6 @@
                	}
                	//Valid .json data. Get the array of files to use               	
                	for($cnt = 0; $cnt< count($json_include->displayFiles); $cnt++) {
-               	
                		$dir_files[] = $full_path . "/" . $json_include->displayFiles[$cnt];
                	}
                	
