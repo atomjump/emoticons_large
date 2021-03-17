@@ -1,0 +1,9 @@
+{
+	"info": "This optional .json file specifies which files to include visibly in the messaging 'emoticons' window, and in which order. Without this file all .png and .jpg image files are included in alphabetical order.",
+	"infoDetail": "Once you have added a file and taken it live, you need to leave it in the repository (because old messages will still point at the image). However, you can choose to remove the image from the displayFiles array below so that it is not a selectable emoticon in future",
+	"displayFiles": [
+		"agood-folder-basic.png",
+		"alien-41605_640.png",
+		"alien-41607_640.png"	
+	]
+}
