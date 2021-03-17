@@ -60,11 +60,9 @@
                		exit(0);
                	}
                	
-               	$staging = false; //TESTING
-               	
+            	
                	//Valid .json data. Get the array of files to use               	
                	for($cnt = 0; $cnt< count($json_include->displayFiles); $cnt++) {
-               		
                		
                		if(($staging != true)&&
 						(strpos($json_include->displayFiles[$cnt], "update-emoticons") !== false)) {
