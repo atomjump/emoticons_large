@@ -60,7 +60,7 @@
                		exit(0);
                	}
                	//Valid .json data. Get the array of files to use
-               	$dir_files = $json_include['displayFiles'];
+               	$dir_files = $json_include->displayFiles;
             } else {
             	echo "Error: emoticons_large " . $include_file ." could not be read properly.";
                	exit(0);
