@@ -59,8 +59,12 @@
                 	echo "Error: emoticons_large " . $include_file ." is not valid JSON.";
                		exit(0);
                	}
-               	//Valid .json data. Get the array of files to use
-               	$dir_files = $json_include->displayFiles;
+               	//Valid .json data. Get the array of files to use               	
+               	for($cnt = 0; $cnt< count($json_include->displayFiles); $cnt++) {
+               	
+               		$dir_files[] = $full_path . "/" . $json_include->displayFiles[$cnt];
+               	}
+               	
             } else {
             	echo "Error: emoticons_large " . $include_file ." could not be read properly.";
                	exit(0);
@@ -69,7 +73,7 @@
 	  		//Use alphabetical sorting of all the image files in the folder
 			$dir_handle = opendir($full_path);
 			while($item = readdir($dir_handle)) {
-				$new_path = $full_path."/".$item;
+				$new_path = $full_path ."/". $item;
 		
 				//A new file
 				$path_info = pathinfo($item);
