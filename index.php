@@ -64,7 +64,7 @@
 			  */
 			  
 			  	//Check if an 'include.json' file exists in this folder
-				$include_file = add_trailing_slash_local($full_path) . "include.json";
+				$include_file = add_trailing_slash($full_path) . "include.json";
 				if(file_exists($include_file)) {
 		
 					//Yes, get the file list from the include file
