@@ -39,11 +39,11 @@
 	global $root_server_url;
 	global $local_server_path;
 	
-	function read_dir($path, $folder){
+	function read_dir($path, $icons_root_folder, $folder){
 		$full_html = "";
 	
         //Reads dirctories
-		  $full_path = trim_trailing_slash($path) . "/" . $folder;
+		  $full_path = trim_trailing_slash($icons_root_folder) . "/" . $folder;
 		  $dirFiles = array();
 	  
 		  $dirHandle = opendir($full_path);
@@ -66,7 +66,7 @@
 				global $root_server_url;						
 			
 				$filename = $newPath;
-				$url = $root_server_url . "/" . $newPath;
+				$url = $root_server_url . "/" . $path . "/" . $newPath;
 				//It's a jpg or png image file
 				$full_html .= "<a href=\"javascript:\" onclick=\"return insertEmoticon('" . $filename . "', '" . $url . "');\"><img width=\"100\" src=\"" . $url . "\"></a>";
 		  }
@@ -77,8 +77,9 @@
 	
 	error_log(json_encode($_REQUEST));
 	error_log($_REQUEST['folder']);
-	$path = 'icons';
-	$html = read_dir($path, $_REQUEST['folder']);
+	$path = 'plugins/emoticons_large/icons';
+	$icons_root_folder = "icons";
+	$html = read_dir($path, $icons_root_folder, $_REQUEST['folder']);
 	echo $html;
 	
 	
