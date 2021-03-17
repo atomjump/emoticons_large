@@ -39,7 +39,7 @@
 	global $root_server_url;
 	global $local_server_path;
 	
-	function read_dir($path, $icons_root_folder, $folder){
+	function read_dir($path, $icons_root_folder, $folder, $staging){
 		$full_html = "";
 	
         //Reads dirctories
@@ -64,7 +64,6 @@
                	//Valid .json data. Get the array of files to use               	
                	for($cnt = 0; $cnt< count($json_include->displayFiles); $cnt++) {
                		
-               		error_log("strpos result" . strpos($json_include->displayFiles[$cnt], "update-emoticons"));
                		if(($staging != true)&&
 						(strpos($json_include->displayFiles[$cnt], "update-emoticons") != false)) {
 							//For production servers remove any files that include 'update-emoticons', which is a special case on staging servers to update the latest icons on the server.
@@ -124,14 +123,13 @@
 	
 	
 	$staging = $emoticons_large_config['staging'];
-	error_log("Staging: " . $staging);		//TESTING
 	if($staging == 1) {
 		$staging = true;
 	}
 	
 	$path = 'plugins/emoticons_large';
 	$icons_root_folder = "icons";
-	$html = read_dir($path, $icons_root_folder, $_REQUEST['folder']);
+	$html = read_dir($path, $icons_root_folder, $_REQUEST['folder'], $staging);
 	echo $html;
 	
 	
