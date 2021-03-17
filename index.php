@@ -90,6 +90,8 @@
         		{
         			//Check if filename includes the work 'folder', and refresh with that folder
         			if(filename.includes("folder")) {
+        				var split = string.split("folder",filename);
+        				alert(split[0] + " " + split[1]);
         				var data = { "folder": "alien" };
         				
         				$.ajax({
