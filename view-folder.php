@@ -70,8 +70,6 @@
 						(strpos($json_include->displayFiles[$cnt], "update-emoticons") !== false)) {
 							//For production servers remove any files that include 'update-emoticons', which is a special case on staging servers to update the latest icons on the server.
 							
-							} else {
-							
 					} else {
                			//A normal image
                			$dir_files[] = $full_path . "/" . $json_include->displayFiles[$cnt];
