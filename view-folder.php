@@ -26,7 +26,6 @@
 	$start_path = add_trailing_slash_local($emoticons_large_config['serverPath']);
 	$notify = true;		//this switches on notifications from this message
 	$staging = $emoticons_large_config['staging'];
-	error_log("Staging: " . $staging);		//TESTING
 	if($staging == 1) {
 		$staging = true;
 	}
@@ -120,6 +119,13 @@
 
 		return $full_html;
 			  
+	}
+	
+	
+	$staging = $emoticons_large_config['staging'];
+	error_log("Staging: " . $staging);		//TESTING
+	if($staging == 1) {
+		$staging = true;
 	}
 	
 	$path = 'plugins/emoticons_large';
