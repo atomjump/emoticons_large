@@ -65,7 +65,7 @@
 		  {
 				global $root_server_url;						
 			
-				$filename = $newPath;
+				$filename = $path . "/" . $newPath;
 				$url = $root_server_url . "/" . $path . "/" . $newPath;
 				//It's a jpg or png image file
 				$full_html .= "<a href=\"javascript:\" onclick=\"return insertEmoticon('" . $filename . "', '" . $url . "');\"><img width=\"100\" src=\"" . $url . "\"></a>";
