@@ -77,7 +77,8 @@
 				//A new file
 				$path_info = pathinfo($item);
 				if(($path_info['extension'] == 'jpg')||
-					($path_info['extension'] == 'png')) {
+					($path_info['extension'] == 'png')||
+					($path_info['extension'] == 'gif')) {
 					 $dir_files[] = $new_path;
 			
 				}
