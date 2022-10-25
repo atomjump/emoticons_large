@@ -1,19 +1,19 @@
 <img src="https://atomjump.com/images/logo80.png">
 
 # emoticons_large
-Large emoticons (full size images) for the AtomJump Loop Server
+Large emoticons (full size images) for the AtomJump Messaging Server
 
 
 ## Requirements
 
-AtomJump Loop Server >= 0.8.1
+AtomJump Messaging Server >= 0.8.1
 
 ## Installation
 
-Unzip or git clone into the folder: your-loop-server/plugins/emoticons_large
+Unzip or git clone into the folder: your-messaging-server/plugins/emoticons_large
 
 ```
- cd your-loop-server/plugins/
+ cd your-messaging-server/plugins/
  git clone https://src.atomjump.com/atomjump/emoticons_large.git
  cd emoticons_large/config
  cp configORIGINAL.json config.json
@@ -23,7 +23,7 @@ Unzip or git clone into the folder: your-loop-server/plugins/emoticons_large
 Set the 	
 
 ```javascript
-	"serverPath": "/your/server/path/here/",	//path to your AtomJump Loop server
+	"serverPath": "/your/server/path/here/",	//path to your AtomJump Messaging server
 	"staging" : true							//true for staging, false for production version of config
 ```
 
