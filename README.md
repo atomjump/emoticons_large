@@ -6,7 +6,7 @@ Large emoticons (full size images) for the AtomJump Messaging Server
 
 ## Requirements
 
-AtomJump Messaging Server >= 0.8.1
+AtomJump Messaging Server >= 3.2.3
 
 ## Installation
 
