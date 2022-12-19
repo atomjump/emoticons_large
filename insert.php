@@ -48,7 +48,7 @@
 		$target_width = 200;
 		$cur_height =  $size_array[1];
 		$target_height = intval(($cur_width / $target_width) * $cur_height);
-		$message = "<img class=\"img-responsive\" border=\"0\"  width=\"" . $target_width . "\" height=\"" . $target_height . "\" src=\"" . $_REQUEST['icon'] . "\">";  //icon is e.g. http://yoururl.com/api/plugins/emoticons_large/icons/sample-set/pirate.jpg
+		$message = "<img class=\"img-responsive\" border=\"0\"  width=\"" . $target_width . "\" height=\"" . $target_height . "\" src=\"" . clean_data($_REQUEST['icon']) . "\">";  //icon is e.g. http://yoururl.com/api/plugins/emoticons_large/icons/sample-set/pirate.jpg
 		$sender_ip = $api->get_current_user_ip();	
 	
 	
@@ -58,20 +58,20 @@
 		$forum = $api->get_forum_id($_REQUEST['passcode']);
 	
 		if(isset($_REQUEST['sender_name']) ) {
-			$username = $_REQUEST['sender_name'];
+			$username = clean_data($_REQUEST['sender_name']);
 		} else {
 			if(isset($_SESSION['temp-user-name']) ) {		
-				$username = $_SESSION['temp-user-name'];
+				$username = clean_data($_SESSION['temp-user-name']);
 			}
 		}
 		if($username == "") {
 			global $msg;
 			global $lang;
-			$username = $msg['msgs'][$lang]['anon'] . " " . substr($sender_ip, -2);
+			$username = clean_data($msg['msgs'][$lang]['anon'] . " " . substr($sender_ip, -2));
 		}
 				
-
-		$api->new_message($username, $message, $_REQUEST['whisper_to'], urldecode($_REQUEST['email']), $sender_ip, $forum['forum_id'], false);
+		$options = array('strip_tags' => false);			//Allow insertion of tags into message
+		$api->new_message($username, $message, $_REQUEST['whisper_to'], urldecode($_REQUEST['email']), $sender_ip, $forum['forum_id'], $options);
 		$api->complete_parallel_calls();
 	
 	} else {
