@@ -1,5 +1,7 @@
 <img src="https://atomjump.com/images/logo80.png">
 
+__WARNING: this project has now moved to https://src.atomjump.com/atomjump/emoticons_large.git__
+
 # emoticons_large
 Large emoticons (full size images) for the AtomJump Messaging Server
 
